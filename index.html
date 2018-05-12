@@ -29,7 +29,9 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li id="signUp" type="button" href="#"  class=" button glyphicon glyphicon-user" data-toggle="modal" data-target="#modal3"> Sign Up </li>
-        <li id="logIn" type="button" href="#"  class="button glyphicon glyphicon-log-in" data-toggle="modal" data-target="#modal3"> Log in</li>
+        <li id="welcome" type="button" href="#"  class=" button glyphicon glyphicon-user"> Welcome! </li>
+        <li id="logIn" type="button" href="#"  class="button glyphicon glyphicon-log-in" data-toggle="modal" data-target="#modal4"> Log in</li>
+        <li id="logOut" type="button" href="#"  class="button glyphicon glyphicon-log-in" onclick=''> Log out</li>
       </ul>
     </div>
   </nav>
@@ -195,34 +197,89 @@ percentage of your salary after you graduate.
   <!--end of 3nd row  -->
 </div>
 <!-- end container-fluid -->
-<!-- sign up start -->
-<div id="modal3" class=" modal fade" id="myModal" role="dialog">
-  <div class="modal-content">
-    <h1 class="modal-title">Create an Account</h1>
-    <div class="modal-body">
-      <label for="name">Name</label>
-      <input id="txtName" type="text" placeholder="Name" class="validate">
-      <div class="input-field col s12">
-         <label for="email">Email</label>
-        <input id="txtEmail" type="email" placeholder="Email" class="validate">
 
+
+<!-- Modal Sign Up -->
+<div class="modal fade" id="modal3" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Create an Account</h4>
       </div>
-      <div class="input-field col s12">
-        <label for="password">Password</label>
-        <input id="txtPassword" type="password" placeholder="Password" class="validate">
-
+      <div class="modal-body" style="text-align:center">
+        <div class="input-field col s12">
+          <label for="name">Name</label>
+        </div>
+        <div class="input-field col s12">
+          <input id="txtName" type="text" placeholder="Name" class="validate">
+        </div>
+        <div class="input-field col s12">
+           <label for="email">Email</label>
+        </div>
+        <div class="input-field col s12">
+          <input id="txtEmail" type="email" placeholder="Email" class="validate">
+        </div>
+        <div class="input-field col s12">
+          <label for="password">Password</label>
+        </div>
+        <div class="input-field col s12">
+          <input id="txtPassword" type="password" placeholder="Password" class="validate">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="btnSignUp" type="button" class="btn btn-info btn-lg" data-dismiss="modal">Submit</button>
+        <button type="button" class="btn btn-info btn-lg" data-dismiss="modal">Close</button>
       </div>
     </div>
 
-    <div class="modal-footer">
-      <button href="#!" id="btnLogin" class=" modal-action modal-close waves-effect waves-green btn-flat btn btn action">Login</button>
-      <button href="#!" id="btnSignUp" class="modal-action modal-close waves-effect waves-green btn-flat btn btn secondary">Sign Up</button>
-      <button  href="#!" id="btnLogOut" class="modal-action modal-close waves-effect waves-green btn-flat btn btn hide">Log Out</button>
-         <button class="btn btn-default" data-dismiss="modal">Close</button>
-    </div>
   </div>
 </div>
-<!-- sign up ends -->
+<!-- Modal Sign up ends -->
+
+
+<!-- Modal Log In -->
+<div class="modal fade" id="modal4" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Welcome Back! Log in</h4>
+      </div>
+      <div class="modal-body"  style="text-align:center;">
+        <div class="input-field col s12">
+           <label for="email">Email</label>
+          <!-- <input id="txtEmail" type="email" placeholder="Email" class="validate"> -->
+        </div>
+        <div class="input-field col s12">
+          <input id="txtEmail" type="email" placeholder="Email" class="validate">
+
+        </div>
+        <div class="input-field col s12">
+          <label for="password">Password</label>
+          <!-- <input id="txtPassword" type="password" placeholder="Password" class="validate"> -->
+        </div>
+        <div class="input-field col s12">
+          <input id="txtPassword" type="password" placeholder="Password" class="validate">
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="btnLogin" type="button" class="btn btn-info btn-lg" data-dismiss="modal">Submit</button>
+        <button type="button" class="btn btn-info btn-lg" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Modal Log In ends -->
+
+
+
 <div class="footer">
   <h4>Sign Up and get a free copy of our MFC book!! </h4>
    <button ><i class="fa fa-download"></i> Download</button>

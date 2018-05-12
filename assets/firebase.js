@@ -12,6 +12,10 @@ var config = {
 var database = firebase.database();
 var uid="";
 
+$('#logOut').hide();
+$('#welcome').hide();
+
+
 // Event Listener for Feedback button
 $('#text1').on("click", function(event) {
   event.preventDefault();
@@ -41,6 +45,10 @@ const btnLogOut = $('#btnLogOut');
 
 // Feedback push to Firebase
 $("#btnLogin").on('click', e => {
+  $('#logIn').hide();
+  $('#welcome').show();
+  $('#signUp').hide();
+  $('#logOut').show();
   const name = $('#txtName').val();
   const email = $("#txtEmail").val();
   const pass = $('#txtPassword').val();
@@ -53,8 +61,10 @@ $("#btnLogin").on('click', e => {
 
 //Eventlistener Signup
 $('#btnSignUp').on('click', e => {
-  document.getElementById("signUp").innerHTML = "Welcome!";
-  document.getElementById("logIn").innerHTML = "Log out";
+  $('#logIn').hide();
+  $('#welcome').show();
+  $('#signUp').hide();
+  $('#logOut').show();
   const name = $('#txtName').val();
   const email = $('#txtEmail').val();
   const pass = $('#txtPassword').val();
@@ -69,8 +79,22 @@ var uidSet = function(){
 //Eventlistener logout
 $('#btnLogOut').on('click', e => {
   firebase.auth().signOut();
-  document.getElementById("signUp").innerHTML = "Sign up";
-  document.getElementById("logIn").innerHTML = "Log in";
+    $('#logIn').show();
+    $('#signUp').show();
+    $('#welcome').hide();
+    $('#logOut').hide();
+
+
+});
+
+$('#logOut').on('click', e => {
+  firebase.auth().signOut();
+  $('#logOut').hide();
+  $('#logIn').show();
+  $('#signUp').show();
+  $('#welcome').hide();
+
+
 });
 
 //Firebase authentication
