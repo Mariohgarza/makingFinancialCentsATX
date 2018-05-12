@@ -53,6 +53,8 @@ $("#btnLogin").on('click', e => {
 
 //Eventlistener Signup
 $('#btnSignUp').on('click', e => {
+  document.getElementById("signUp").innerHTML = "Welcome!";
+  document.getElementById("logIn").innerHTML = "Log out";
   const name = $('#txtName').val();
   const email = $('#txtEmail').val();
   const pass = $('#txtPassword').val();
@@ -67,8 +69,8 @@ var uidSet = function(){
 //Eventlistener logout
 $('#btnLogOut').on('click', e => {
   firebase.auth().signOut();
-  $(".savedWines").empty();
-  $(".savedRecipes").empty();
+  document.getElementById("signUp").innerHTML = "Sign up";
+  document.getElementById("logIn").innerHTML = "Log in";
 });
 
 //Firebase authentication
@@ -79,11 +81,14 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     $('#btnLogin').addClass('hide');
     $('#logIn').addClass('btnHide');
     $('#logOut').removeClass('btnHide');
+
   } else {
     console.log('not logged in');
     $('#btnLogOut').addClass('hide');
     $('#btnLogin').removeClass('hide');
     $('#logIn').removeClass('btnHide');
     $('#logOut').addClass('btnHide');
+
+
   }
 });
