@@ -49,7 +49,6 @@ $("#btnLogin").on('click', e => {
   $('#welcome').show();
   $('#signUp').hide();
   $('#logOut').show();
-  const name = $('#txtName').val();
   const email = $("#txtEmail").val();
   const pass = $('#txtPassword').val();
   const auth = firebase.auth();
@@ -66,11 +65,13 @@ $('#btnSignUp').on('click', e => {
   $('#signUp').hide();
   $('#logOut').show();
   const name = $('#txtName').val();
-  const email = $('#txtEmail').val();
-  const pass = $('#txtPassword').val();
+  const email = $('#txtEmail_SignUp').val();
+  const pass = $('#txtPassword_SignUp').val();
   const auth = firebase.auth();
   const promise = auth.createUserWithEmailAndPassword(email, pass);
   promise.catch(e => console.log(e.message));
+  $("#txtEmail__SignUp").val("");
+  $('#txtPassword__SignUp').val("");
 });
 var uidSet = function(){
   uid= firebase.auth().currentUser.uid;
