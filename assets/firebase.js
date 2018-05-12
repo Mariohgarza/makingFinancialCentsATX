@@ -10,6 +10,7 @@ var config = {
   firebase.initializeApp(config);
 
 var database = firebase.database();
+var uid="";
 
 // Event Listener for Feedback button
 $('#text1').on("click", function(event) {
@@ -40,6 +41,7 @@ const btnLogOut = $('#btnLogOut');
 
 // Feedback push to Firebase
 $("#btnLogin").on('click', e => {
+  const name = $('#txtName').val();
   const email = $("#txtEmail").val();
   const pass = $('#txtPassword').val();
   const auth = firebase.auth();
@@ -51,15 +53,19 @@ $("#btnLogin").on('click', e => {
 
 //Eventlistener Signup
 $('#btnSignUp').on('click', e => {
+  const name = $('#txtName').val();
   const email = $('#txtEmail').val();
   const pass = $('#txtPassword').val();
   const auth = firebase.auth();
   const promise = auth.createUserWithEmailAndPassword(email, pass);
   promise.catch(e => console.log(e.message));
 });
+var uidSet = function(){
+  uid= firebase.auth().currentUser.uid;
+};
 
 //Eventlistener logout
-$('#logOut').on('click', e => {
+$('#btnLogOut').on('click', e => {
   firebase.auth().signOut();
   $(".savedWines").empty();
   $(".savedRecipes").empty();
